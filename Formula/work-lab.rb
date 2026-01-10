@@ -4,8 +4,8 @@
 class WorkLab < Formula
   desc "Container-based lab for humans and AI coding agents"
   homepage "https://github.com/modern-tooling/work-lab"
-  url "https://github.com/modern-tooling/work-lab/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "546558f8c09f7c7b1891ecdda5fdaf1cf83504b9e470dc8c9c4b6435f30a5303"
+  url "https://github.com/modern-tooling/work-lab/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "8a692ea885c0c2f222adac1c9ad322ae32f0f158974ed73586fd7a274c5586b1"
   license "MIT"
 
   depends_on "docker" => :recommended
