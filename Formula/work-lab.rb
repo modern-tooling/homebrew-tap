@@ -4,8 +4,8 @@
 class WorkLab < Formula
   desc "Container-based lab for humans and AI coding agents"
   homepage "https://github.com/modern-tooling/work-lab"
-  url "https://github.com/modern-tooling/work-lab/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "c4dcae8a3617d9396504a4c3cc1d60111d5f5a561ca3261bda93a47630562abc"
+  url "https://github.com/modern-tooling/work-lab/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "fca5ab1237e5ac49ac1ad3994d1cb24b69125f3a88a25aed5f60af9b2e1bad8b"
   license "MIT"
 
   depends_on "docker" => :recommended
@@ -15,7 +15,7 @@ class WorkLab < Formula
     bin.install "bin/work-lab"
 
     # Install the library
-    (libexec/"lib").install "lib/style.sh"
+    (libexec/"lib").install Dir["lib/*.sh"]
 
     # Install devcontainer configuration
     (libexec/".devcontainer").install Dir[".devcontainer/*"]
