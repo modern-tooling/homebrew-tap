@@ -5,33 +5,43 @@
 class Aloc < Formula
   desc "Semantic LOC counter - understand your codebase by role"
   homepage "https://github.com/modern-tooling/aloc"
-  version "0.4.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
-    on_intel do
-      url "https://github.com/modern-tooling/aloc/releases/download/v0.4.0/aloc_0.4.0_darwin_x86_64.tar.gz"
-      sha256 "14052b7bece175036bca5502a269ff21dc45bf67e71e103f16b7761a601d2143"
+    if Hardware::CPU.intel?
+      url "https://github.com/modern-tooling/aloc/releases/download/v0.5.1/aloc_0.5.1_darwin_x86_64.tar.gz"
+      sha256 "b73ff20e612a137d762f7012ac85127c8649b2b22c88120912a2f280c31243d8"
+
+      def install
+        bin.install "aloc"
+      end
     end
-    on_arm do
-      url "https://github.com/modern-tooling/aloc/releases/download/v0.4.0/aloc_0.4.0_darwin_arm64.tar.gz"
-      sha256 "193d07c545a82d92caa202f1fd33fcc917b899526cc85cac4e6f1a80cce93b66"
+    if Hardware::CPU.arm?
+      url "https://github.com/modern-tooling/aloc/releases/download/v0.5.1/aloc_0.5.1_darwin_arm64.tar.gz"
+      sha256 "baee65431ed60b0d61b0f103437195cdd7f9bf4238c6f4cd8448265e68758846"
+
+      def install
+        bin.install "aloc"
+      end
     end
   end
 
   on_linux do
-    on_intel do
-      url "https://github.com/modern-tooling/aloc/releases/download/v0.4.0/aloc_0.4.0_linux_x86_64.tar.gz"
-      sha256 "8bd897cc33c27c2671b2ef506d9cc8595cceffc10b05a51898b0897ec4a2e44c"
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/modern-tooling/aloc/releases/download/v0.5.1/aloc_0.5.1_linux_x86_64.tar.gz"
+      sha256 "205e0389a9b2c4b809720006952f387b7a2769f2bf43dcb08d8242772f382f57"
+      def install
+        bin.install "aloc"
+      end
     end
-    on_arm do
-      url "https://github.com/modern-tooling/aloc/releases/download/v0.4.0/aloc_0.4.0_linux_arm64.tar.gz"
-      sha256 "2129cf41b53354ccbb30e4282ff99a86d3fc173780295dfd40639acabb773db4"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/modern-tooling/aloc/releases/download/v0.5.1/aloc_0.5.1_linux_arm64.tar.gz"
+      sha256 "562c6cefedca89dd47dde00810d367ddef4153629a1bb87746390bc09b860a96"
+      def install
+        bin.install "aloc"
+      end
     end
-  end
-
-  def install
-    bin.install "aloc"
   end
 
   test do
